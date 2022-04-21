@@ -1,0 +1,263 @@
+/* ----------------- */
+/* Custom properties */
+/* ----------------- */
+
+:root{
+    /* Colors*/
+    --clr-black: 16 16 16;
+    --clr-blue: 13 172 253;
+    --clr-white: 253 253 253;
+
+    /* Font sizes*/
+    --fs-900: 9.375rem;
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+
+    /* Font-families*/
+    --ff-serif: "PT Serif", serif;
+    --ff-sans: "Open Sans", sans-serif;
+}
+
+/* ----------------- */
+/* Reset */
+/* ----------------- */
+
+/* Box sizing */
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+/* Margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd{
+    margin: 0;
+}
+
+/* Font weight */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: 400;
+}
+
+/* Something with scrolling, idk*/
+html:focus-within{
+    scroll-behavior: smooth;
+}
+
+/* Styling the body */
+body{
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    background-color: rgb(var(--clr-black));
+    color: rgb(var(--clr-white));
+    font-family: var(--ff-sans);
+    font-size: var(--fs-400);
+    line-height: 1.5;
+}
+
+/* Images & pictures */
+img,
+picture{
+    max-width: 100%;
+    display: block;
+}
+
+/* Form elements */
+input,
+button,
+textarea,
+select{
+    font: inherit;
+}
+
+/* Remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce){
+    *,
+    *::before,
+    *::after{
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+}
+
+/* ----------------- */
+/* Utility classes */
+/* ----------------- */
+
+/* General */
+
+.flex{
+    display: flex;
+    gap: var(--gap, 1rem);
+}
+
+.grid{
+    display: grid;
+    gap: var(--gap, 1rem);
+}
+
+.container{
+    padding-inline: 2em;
+    margin-inline: auto;
+    max-width: 80rem;
+}
+
+/* Selects all with sibling before OR selects everything but first*/
+.flow > * + *{
+    margin-top: var(--flow-space, 1rem);
+    /*outline: 1px solid red;*/
+}
+
+/* Screen reader */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* added line */
+    border: 0;
+  }
+
+/* Colors */
+
+.bg-black{
+    background-color: rgb(var(--clr-black));
+}
+
+.bg-blue{
+    background-color: rgb(var(--clr-blue));
+}
+
+.bg-white{
+    background-color: rgb(var(--clr-white));
+}
+
+.text-black{
+    color: rgb(var(--clr-black));
+}
+
+.text-blue{
+    color: rgb(var(--clr-blue));
+}
+
+.text-white{
+    color: rgb(var(--clr-white));
+}
+
+/* Typography */
+
+.ff-serif{ font-family: var(--ff-serif);
+}
+
+.ff-sans{ font-family: var(--ff-sans);
+}
+
+.letter-spacing-1 { letter-spacing: 4.75px;
+}
+.letter-spacing-2 { letter-spacing: 2.7px;
+}
+.letter-spacing-3 { letter-spacing: 2.35px; }
+
+.uppercase { text-transform: uppercase;
+}
+
+.fs-900 { font-size: var(--fs-900);
+}
+.fs-800 { font-size: var(--fs-800);
+}
+.fs-700 { font-size: var(--fs-700);
+}
+.fs-600 { font-size: var(--fs-600);
+}
+.fs-500 { font-size: var(--fs-500);
+}
+.fs-400 { font-size: var(--fs-400);
+}
+.fs-300 { font-size: var(--fs-300);
+}
+.fs-200 { font-size: var(--fs-200);
+}
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600{
+    line-height: 1.1;
+}
+
+.numbered-title{
+    font-family: var(--ff-sans);
+    font-size: var(--fs-500);
+    text-transform: uppercase;
+    letter-spacing: 4.72px;
+}
+
+.numbered-title span{
+    margin-right: .5em;
+    font-weight: 700;
+    color: rgb(var(--clr-white)/.3);
+}
+
+/* ----------------- */
+/* Components */
+/* ----------------- */
+
+/* UNFINISHED Buttons */
+.large-button{
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: 0 2em;
+    text-decoration: none;
+    aspect-ratio: 3/1;
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
+}
+
+.large-button::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.large-button:hover::after,
+.large-button:focus-within::after{
+    background-color: var(--clr-blue);
+}
+
+/* EXPERIMENTAL Nav-bar*/
+.p-nav{
+    align-items: center;
+}
